@@ -13,10 +13,6 @@ public class Biblioteca {
 		return b;
 	}
 	
-	
-	public ArrayList<Bibliotecario> getBibliotecarios() {
-		return bibliotecarios;
-	}
 
 	public void addLivro(Bibliotecario b, Livro livro) {
 		b.addLivro(livro);
@@ -35,5 +31,9 @@ public class Biblioteca {
 
 	public ArrayList<Autor> getAutores() {
 		return autores;
+	}
+	
+	public ArrayList<Bibliotecario> getBibliotecarios() {
+		return bibliotecarios;
 	}
 }
