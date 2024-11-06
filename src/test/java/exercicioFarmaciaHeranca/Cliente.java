@@ -1,10 +1,18 @@
 package exercicioFarmaciaHeranca;
 
-import java.text.DecimalFormat;
-
 public class Cliente {
 	private String nome;
 	private double saldo_devedor;
+	
+	public Cliente () {
+		
+	}
+	
+	public Cliente(String nome, double saldo) {
+		setNome(nome);
+		setSaldo_devedor(saldo);
+	}
+	
 	public String getNome() {
 		return nome;
 	}

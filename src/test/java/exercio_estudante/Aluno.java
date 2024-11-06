@@ -6,6 +6,10 @@ public class Aluno {
 	private String nome;
 	private ArrayList<Diciplina> diciplinas = new ArrayList<Diciplina>();
 	
+	public Aluno() {
+		this.nome = "Joaozinho";
+	}
+	
 	public Aluno(String nome) {
 		this.nome = nome;
 	}

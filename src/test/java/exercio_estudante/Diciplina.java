@@ -37,6 +37,12 @@ public class Diciplina {
 	public void setNotas(Notas notas) {
 		this.notas = notas;
 	}
+	
+	public Diciplina () {
+		this.nome = "João";
+		this.carga_horaria = 30;
+	}
+	
 
 	public Diciplina(String nome, int carga, Professor professor) {
 		this.nome = nome;

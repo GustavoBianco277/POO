@@ -21,4 +21,9 @@ public class Prescricao {
 	public void setMedicamento(Medicamento medicamento) {
 		this.medicamento = medicamento;
 	}
+	
+	@Override
+	public String toString() {
+		return pessoa + " - " + medicamento;
+	}
 }

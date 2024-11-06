@@ -8,7 +8,7 @@ public class Produto {
 	public boolean Vender(Cliente c, int quantidade) {
 		if (estoque >= quantidade) {
 			estoque -= quantidade;
-			c.setSaldo_devedor(valor * quantidade);
+			c.setSaldo_devedor(c.getSaldo_devedor() + valor * quantidade);
 			return true;
 		}
 		return false;

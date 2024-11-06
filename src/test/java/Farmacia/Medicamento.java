@@ -14,9 +14,10 @@ public class Medicamento {
 	private ArrayList<String> indicacoes = new ArrayList<String>();
 	
 	
-	public Medicamento(String nome, administracao adm) {
+	public Medicamento(String nome, administracao adm, ArrayList<String> s) {
 		this.nome = nome;
 		this.administracao = adm;
+		this.indicacoes = s;
 	}
 
 
@@ -46,5 +47,10 @@ public class Medicamento {
 
 	public void setIndicacao(ArrayList<String> indicacao) {
 		this.indicacoes = indicacao;
+	}
+	
+	@Override
+	public String toString() {
+		return getNome();
 	}
 }

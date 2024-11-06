@@ -21,4 +21,9 @@ public class Pessoa {
 	public void setSintoma(String sintoma) {
 		this.sintoma = sintoma;
 	}
+	
+	@Override
+	public String toString() {
+		return getNome() +" ("+getSintoma()+")";
+	}
 }

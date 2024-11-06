@@ -22,14 +22,6 @@ public class Farmacia {
 		return null;
 	}
 	
-	public void addMedicamento(String nome, administracao adm) {
-		medicamentos.add(new Medicamento(nome, adm));
-	}
-	
-	public void addIndicacao_Medicamento(String medicamento, String indicacao) {
-		buscaMedicamento(medicamento).getIndicacao().add(indicacao);
-	}
-	
 	public Medicamento buscaMedicamento(String nome) {
 		for (Medicamento m : medicamentos) {
 			if (m.getNome().equalsIgnoreCase(nome)) {
@@ -39,41 +31,47 @@ public class Farmacia {
 		return null;
 	}
 	
+	public void addMedicamento(String nome, administracao adm, ArrayList<String> s) {
+		medicamentos.add(new Medicamento(nome, adm, s));
+	}
+	
+	public void addIndicacao_Medicamento(String medicamento, String indicacao) {
+		buscaMedicamento(medicamento).getIndicacao().add(indicacao);
+	}
+	
 	public boolean prescreveMedicamento(Pessoa p, Medicamento m) {
 		for (String indicacao : m.getIndicacao()) {
-			if (indicacao.equalsIgnoreCase(p.getSintoma()))
+			if (indicacao.equalsIgnoreCase(p.getSintoma())) {
+				prescricoes.add(new Prescricao(p, m));
 				return true;
+				}
 		}
 		return false;
+	}
+	
+	public void addPrescricao(String pessoa, String medicamento) {
+		prescreveMedicamento(buscaPessoa(pessoa), buscaMedicamento(medicamento));
+	}
+	
+	public String medicamentosPorPessoa(String nome) {
+		String ret = "";
+		for (Prescricao presc : prescricoes) {
+			if (presc.getPessoa().getNome().equalsIgnoreCase(nome)){
+				ret += presc.getMedicamento();
+			}
+		}
+		return ret;
 	}
 	
 	public ArrayList<Pessoa> getPessoas() {
 		return pessoas;
 	}
 
-	public void setPessoas(ArrayList<Pessoa> pessoas) {
-		this.pessoas = pessoas;
-	}
-
 	public ArrayList<Medicamento> getMedicamentos() {
 		return medicamentos;
 	}
 
-	public void setMedicamentos(ArrayList<Medicamento> medicamentos) {
-		this.medicamentos = medicamentos;
-	}
-
 	public ArrayList<Prescricao> getPrescricoes() {
 		return prescricoes;
-	}
-
-	public void setPrescricoes(ArrayList<Prescricao> prescricoes) {
-		this.prescricoes = prescricoes;
-	}
-
-	public void addPrescricao(String pessoa, String medicamento) {
-		if (prescreveMedicamento(buscaPessoa(pessoa), buscaMedicamento(medicamento))) {
-			prescricoes.add(new Prescricao(buscaPessoa(pessoa), buscaMedicamento(medicamento)));
-		}
 	}
 }

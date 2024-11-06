@@ -2,6 +2,8 @@ package exercio_estudante;
 
 import java.util.ArrayList;
 
+import exercio_estudante.Professor.formacao;
+
 public class ManipulaAlunos {
 	
 	ArrayList<Aluno> alunos = new ArrayList<Aluno>();
@@ -32,6 +34,10 @@ public class ManipulaAlunos {
 	
 	void addDiciplina (Diciplina diciplina, String nome) {
 		buscaAluno(nome).getDiciplinas().add(diciplina);
+	}
+	
+	void addProfessor(String diciplina, String aluno, String nome, formacao form) {
+		buscaDisciplina(diciplina, buscaAluno(aluno)).setProfessor(new Professor(nome, form));
 	}
 	
 	double getMedia (String aluno, String dic) {
